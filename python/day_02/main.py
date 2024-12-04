@@ -49,6 +49,9 @@ def part2():
       # if not currently safe -  check if it can be made safe by removing one
       for i in range(len(numbers)):
         # remove one number from the list and check if the new list is safe
+        # for each failed list, we slice the list at the current index, excluding the current number
+        # then concatenate one up from it and merger the two slices
+        # if the new list is safe, we increment the safe reports and break the loop
         if is_safe(numbers[:i] + numbers[i+1:]):
           safe_level_reports += 1
           break
